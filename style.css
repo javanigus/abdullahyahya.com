@@ -26,6 +26,9 @@ code {
 	background-color: #eaeaea;
 	border: none;
 }
+.wp-block-code code[class*=language-] {
+	padding: 0;
+}
 figure.wp-block-image.size-large.full-width img {
 	width: 100%;
 }
