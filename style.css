@@ -1,0 +1,379 @@
+ /*
+ Theme Name: mytwentyfifteen
+ Description: The custom theme using the parent theme Twenty Fifteen.
+ Author: Abdullah Yahya
+ Author URI: www.abdullahyahya.com
+ Template: twentyfifteen
+ Version: 1
+ */
+h2, p {
+    margin: 20px;
+}
+li {
+    margin: 0 20px;
+}
+.entry-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+ .entry-content, .entry-summary, .page-content, .comment-content {
+	 hyphens: none;
+ }
+ .widget_search {
+    margin-bottom: 1em;
+}
+code {
+	background-color: #eaeaea;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+	white-space: pre-wrap;
+}
+.wp-block-code {
+	background-color: #eaeaea !important;
+}
+.wp-block-code code {
+	white-space: pre !important;
+	background-color: #eaeaea;
+	border: none;
+	padding: 0.75em 20px;
+	line-height: 1;
+}
+pre[class*=language-] {
+	padding: 0;
+}
+.schedule {
+	background: black;
+}
+.schedule.wp-block-table table {
+	width: auto;
+}
+.schedule.wp-block-table td {
+	border: 0;
+}
+.schedule td:nth-of-type(1) {
+    white-space: nowrap;
+    background-color: red;
+}
+figure.wp-block-image.size-large.full-width img {
+	width: 100%;
+}
+.entry-content h2,
+.entry-summary h2,
+.page-content h2,
+.comment-content h2 {
+	margin-bottom: 0.5em;
+}
+.entry-content h3,
+.entry-summary h3,
+.page-content h3,
+.comment-content h3 {
+	margin-bottom: 0.5em;
+	margin-top: 1.25em;
+}
+[data-id="5293"] {
+	border-bottom: 1px solid;
+}
+.wp-block-table table {
+	width: 100%;
+	margin-bottom: 0;
+	table-layout: auto;
+}
+.wp-block-table.nowrap td:first-of-type,
+.wp-block-table.nowrap th {
+	white-space: nowrap;
+}
+.wp-block-separator.wp-block-separator {
+	margin: 3em 0;
+}
+.wp-block-table.is-style-stripes th,
+.wp-block-table.is-style-stripes td {
+	border: 1px solid #eaeaea;
+}
+.wp-block-table.is-style-stripes th {
+    background-color: #c3c4c7;
+}
+.wp-block-table.is-style-stripes {
+	border-bottom: 0;
+}
+ul {
+	margin-left: 1em;
+}
+.entry-content p,
+.entry-content li {
+    color: #6A778B;
+}
+.blog .entry-content,
+.search-results .entry-content,
+.archive .entry-content {
+    display: none;
+}
+.single-post .post-thumbnail  {
+	display: none;
+}
+.hentry.has-post-thumbnail {
+    padding-top: 2em;
+}
+.hentry {
+	padding-bottom: 2em;
+	border-radius: 5px;
+}
+.entry-title {
+	margin-bottom: 0.5em;
+}
+.date {
+	color: rgba(51, 51, 51, 0.7);
+}
+.tag-arabic {
+	direction: rtl;
+}
+.verse {
+    text-align: initial;
+	font-family: DroidArabicNaskhRegular;
+	line-height: 2.4;
+	direction: rtl;
+}
+.arabic {
+	font-family: DroidArabicNaskhRegular;
+}
+.entry-footer {
+	text-align: left !important;
+    direction: ltr !important;
+}
+.image-border img {
+	border: 1px solid #ccc;
+    padding: 1em;
+}
+.image-full-width img {
+	width: 100%;
+}
+.post-thumbnail img {
+	max-width: 90%;
+	border-radius: 5px;
+}
+@media (min-width: 860px) {
+	.post-thumbnail img {
+		max-width: 691px;
+	}
+}
+@media (min-width: 860px) {
+	.post-thumbnail img {
+		max-width: 90%;
+	}
+}
+@media (min-width: 1320px) {
+	.post-thumbnail img {
+		max-width: 691px;
+	}
+}
+body {
+	font-family: 'Noto Sans';
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.post-navigation .nav-next {
+    background-image: none !important;
+}
+.post-navigation .nav-previous {
+    background-image: none !important;
+    border-bottom: 1px solid #fff;
+}
+ul, ol {
+    margin-left: 1em;
+}
+.entry-content a, .entry-summary a, .page-content a, .comment-content a, .pingback .comment-body > a {
+    border-bottom: none;
+    color: #d63638;
+}
+.entry-content a:hover, .entry-summary a:hover, .page-content a:hover, .comment-content a:hover, .pingback .comment-body > a:hover {
+    border-bottom: 1px solid #333;
+    color: #d63638;
+}
+.post-thumbnail {
+    margin-bottom: 0 !important;
+}
+.entry-footer {
+    margin-bottom: 2em !important;
+}
+.sidebar {
+	background-color: rgba(255,255,255,0.7);
+}
+body:before {
+	background: transparent;
+}
+.secondary,
+.site-header {
+	background-color: transparent;
+}
+.site-header {
+	border-bottom: 0;
+}
+@media screen and (min-width: 77.5em) {
+	.site-title {
+		font-size: 3.7rem;
+	}
+}
+.hentry {
+    border-bottom: 5px solid #ccc;
+    border-top: 0 !important;
+}
+.wp-block-code,
+.wp-block-image img {
+    border-radius: 0 !important;
+}
+@media screen and (min-width: 620px) {
+	.wp-block-image img {
+		border-radius: 5px !important;
+	}
+	.entry-content {
+		padding: 0 9.6923% 7.6923%;
+	}
+	h2, p {
+		margin: 1em 0;
+	}
+	.hentry {
+		border-bottom: 0;
+	}
+}
+.secondary-toggle,
+.secondary-toggle:hover, .secondary-toggle:focus {
+	background-color: white;
+	border-radius: 5px;
+}
+#nav_menu-2,
+.parent-pageid-8861 .main-navigation,
+.parent-pageid-8861 .widget_search,
+.parent-pageid-8861 .widget_categories,
+.parent-pageid-8861 .widget_recent_entries,
+.parent-pageid-8861 .widget_text,
+.parent-pageid-8919 .main-navigation,
+.parent-pageid-8919 .widget_search,
+.parent-pageid-8919 .widget_categories,
+.parent-pageid-8919 .widget_recent_entries,
+.parent-pageid-8919 .widget_text {
+	display: none;
+}
+.parent-pageid-8861 #nav_menu-2,
+.parent-pageid-8919 #nav_menu-2 {
+	display: block;
+}
+.menu-landlord-tips-container {
+	display: none;
+}
+.parent-pageid-8861 .menu-landlord-tips-container,
+.parent-pageid-8919 .menu-landlord-tips-container {
+	display: block;
+}
+a,
+.widget {
+	color: #000;
+}
+.me-without-sand,
+.me-with-sand {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+.me-without-sand,
+.me-with-sand {
+	display: none;
+}
+@media screen and (min-width: 955px) {
+	.me-without-sand {
+		display: block;
+	}
+}
+@media screen and (min-width: 1466px) {
+	.me-with-sand {
+		display: block;
+	}
+	.me-without-sand {
+		display: none;
+	}
+}
+@media screen and (min-width: 59.6875em) {
+	.site-footer {
+		margin-bottom: 100vh;
+	}
+}
+.site-title {
+    margin-left: 23%;
+}
+.site-header {
+	background-image: url(http://www.abdullahyahya.com/wp-content/uploads/2021/08/mobile-header-bg-1.jpg);
+	background-size: cover;
+	border-bottom: 5px solid #ccc;
+}
+.sidebar {
+    background-color: rgba(255,255,255,1);
+    border-bottom: 5px solid #ccc;
+}
+.secondary.toggled-on {
+	background-color: white;
+	margin-bottom: 4em;
+	margin-top: 2em;
+}
+.wp-block-search .wp-block-search__button {
+	border: 1px solid #949494;
+}
+.headshot {
+	display: none;
+}
+@media screen and (min-width: 620px) {
+	.site-header {
+		background-image: none;
+		border-bottom: 0;
+	}
+	.site-logo {
+		display: flex;
+    	align-items: center;
+	}
+	.headshot {
+		display: inline-block;
+	}
+	.sidebar {
+		background-color: transparent;
+		border-bottom: 0;
+	}
+	.site-title {
+		border-radius: 5px;
+		margin-left: 0;
+		background-color: white;
+		display: inline-block;
+		padding: 1em;
+	}
+	.site-main {
+		padding-top: 0;
+	}
+	.secondary.toggled-on {
+		margin-top: 0;
+	}
+}
+@media screen and (min-width: 955px) {
+	.site-title {
+		margin-left: auto;
+		background-color: transparent;
+		padding: 0;
+		display: block;
+	}
+	.site-logo {
+		display: block;
+		text-align: center;
+	}
+	.site-header {
+		background-image: none;
+	}
+	.sidebar {
+		background-color: rgba(255,255,255,0.7);
+	}
+	.site-main {
+		padding: 7.6923% 0;
+	}
+	.secondary.toggled-on {
+		background-color: transparent;
+		margin-bottom: 0;
+	}
+}
+@media screen and (min-width: 38.75em) {
+	
+}
