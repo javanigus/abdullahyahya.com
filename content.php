@@ -103,11 +103,13 @@
 <li><a href="http://www.abdullahyahya.com/2019/09/muslim-women-are-not-exempt-from-fasting-praying-etc-during-menstruation/">Muslim Women Are Not Exempt From Fasting, Praying, etc During Menstruation</a></li>
 <li><a href="http://www.abdullahyahya.com/2020/09/the-quran-doesnt-support-a-strictly-vegetarian-diet/">The Quran Doesn’t Support a Strictly Vegetarian Diet</a></li>
 <li><a href="http://www.abdullahyahya.com/2019/08/summary-of-the-quran/">Summary of the Quran</a></li>
+<li><a href="http://www.abdullahyahya.com/2020/09/summary-of-the-quran-2/">Summary of the Quran 2</a></li>
 <li><a href="http://www.abdullahyahya.com/2019/09/proof-hadith-not-valid-islamic-law-ar/">إثبات أن الحديث ليس شرعاً إسلامياً صالحاً</a></li>
 <li><a href="http://www.abdullahyahya.com/2019/09/proof-muslim-women-dont-have-to-cover-their-hair-ar/">إثبات أن النساء المسلمات لسن بحاجة لتغطية شعرهم</a></li>
 <li><a href="http://www.abdullahyahya.com/2019/09/bukti-hadits-tidak-valid-hukum-islam/">Bukti Hadits Tidak Valid Hukum Islam</a></li>
 <li><a href="http://www.abdullahyahya.com/2019/09/kekeliruan-bahwa-keturunan-nabi-muhammad-lebih-unggul-dari-semua-orang-lain/">Kekeliruan Bahwa Keturunan Nabi Muhammad Lebih Unggul Dari Semua Orang Lain</a></li>
-<li><a href="http://www.abdullahyahya.com/2019/09/bukti-wanita-muslim-tidak-harus-menutup-rambutnya-dengan-hijab/">Bukti Wanita Muslim Tidak Harus Menutup Rambutnya Dengan Hijab</a></li>
+<li><a href="http://www.abdullahyahya.com/2019/09/bukti-wanita-muslim-tidak-harus-menutup-rambutnya-dengan-hijab/">Bukti Wanita Muslim Tidak Harus Menutup Rambutnya Dengan Hijab
+</a></li>
 </ul>
 		<?php endif; ?>
 	</div><!-- .entry-content -->

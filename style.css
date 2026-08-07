@@ -6,8 +6,98 @@
  Template: twentyfifteen
  Version: 1
  */
-h2, p {
-    margin: 20px;
+.single .back-to-top {
+    align-content: center;
+    display: block;
+    font-size: 25px;
+    color: #fff;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 50px;
+    z-index: 100;
+    border: 2px solid #fff;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+.single .back-to-top:hover {
+	color: #fff;
+	background-color: rgba(0, 0, 0, 1);
+}
+.calendar td {
+    width: 14.2%;
+    font-size: 22px;
+    font-family: monospace;
+    text-align: center;
+	padding: 0;
+}
+@media screen and (min-width: 720px) {
+	.calendar td {
+		font-size: 19px;
+	}
+}
+.blog .entry-title {
+    margin-top: 0;
+}
+.wp-block-table table {
+	font-size: 13px;
+}
+.wp-block-image {
+	display: flex;
+    justify-content: center;
+	flex-direction: column;
+    align-items: center;
+}
+.wp-block-media-text .wp-block-media-text__content {
+	align-self: start;
+}
+.wp-block-media-text__content p:first-of-type {
+	margin: 0;
+}
+.entry-content h2,
+.entry-content h3, 
+.entry-content h4, 
+.entry-content h5, 
+.entry-content h6, 
+.entry-content p {
+    margin: 20px 0;
+	padding: 0 15px
+}
+.entry-content p.has-background {
+	padding: 7.6923%	
+}
+.entry-content ul,
+.entry-content ol {
+	padding: 0 3%;
+}
+@media screen and (min-width: 620px) {
+	.entry-content h2,
+	.entry-content h3, 
+	.entry-content h4, 
+	.entry-content h5, 
+	.entry-content h6, 
+	.entry-content p {
+		padding: 0 0;
+	}
+	.entry-content ul,
+	.entry-content ol {
+		padding: 0 0.5em;
+	}
+	.entry-content p.has-background {
+		padding: 2em;	
+	}
+}
+@media screen and (max-width: 620px) {
+	.entry-content ul ul,
+	.entry-content ol ol {
+		padding: 0;
+	}
 }
 li {
     margin: 0 20px;
@@ -49,9 +139,9 @@ pre[class*=language-] {
 }
 .schedule.wp-block-table td {
 	border: 0;
+	font-size: 19px;
 }
 .schedule td:nth-of-type(1) {
-    white-space: nowrap;
     background-color: red;
 }
 figure.wp-block-image.size-large.full-width img {
@@ -61,7 +151,7 @@ figure.wp-block-image.size-large.full-width img {
 .entry-summary h2,
 .page-content h2,
 .comment-content h2 {
-	margin-bottom: 0.5em;
+	margin-top: 2em;
 }
 .entry-content h3,
 .entry-summary h3,
@@ -151,12 +241,11 @@ ul {
 	border-radius: 5px;
 }
 @media (min-width: 860px) {
+	.schedule td:nth-of-type(1) {
+		white-space: nowrap;
+	}
 	.post-thumbnail img {
 		max-width: 691px;
-	}
-}
-@media (min-width: 860px) {
-	.post-thumbnail img {
 		max-width: 90%;
 	}
 }
@@ -179,7 +268,7 @@ body {
     border-bottom: 1px solid #fff;
 }
 ul, ol {
-    margin-left: 1em;
+    margin-left: 0;
 }
 .entry-content a, .entry-summary a, .page-content a, .comment-content a, .pingback .comment-body > a {
     border-bottom: none;
@@ -189,11 +278,18 @@ ul, ol {
     border-bottom: 1px solid #333;
     color: #d63638;
 }
+.entry-content figure a:hover {
+	border: none;
+}
 .post-thumbnail {
     margin-bottom: 0 !important;
 }
+.entry-header {
+	padding: 0 15px;
+}
 .entry-footer {
     margin-bottom: 2em !important;
+	padding: 3.8461% 15px;
 }
 .sidebar {
 	background-color: rgba(255,255,255,0.7);
@@ -295,6 +391,12 @@ a,
 	.site-footer {
 		margin-bottom: 100vh;
 	}
+	.entry-header {
+		padding: 0 10%;
+	}
+	.entry-footer {
+		padding: 5% 10%;
+	}
 }
 .site-title {
     margin-left: 23%;
@@ -375,5 +477,10 @@ a,
 	}
 }
 @media screen and (min-width: 38.75em) {
-	
+	li > ul, 
+	li > ol, 
+	blockquote > ul, 
+	blockquote > ol {
+		margin-left: 0;
+	}
 }

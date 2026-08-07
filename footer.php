@@ -22,5 +22,7 @@
 
 <?php wp_footer(); ?>
 
+<a href="#" class="back-to-top">▲</a>
+
 </body>
 </html>
