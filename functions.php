@@ -10,6 +10,17 @@
 	}
 	add_action( 'wp_enqueue_scripts', 'mychildtheme_enqueue_styles' );
 
+	function mychildtheme_enqueue_scripts() {
+		wp_enqueue_script(
+			'mychildtheme-lightbox',
+			get_stylesheet_directory_uri() . '/js/lightbox.js',
+			array(),
+			'1.0',
+			true
+		);
+	}
+	add_action( 'wp_enqueue_scripts', 'mychildtheme_enqueue_scripts' );
+
 	function custom_jetpack_default_image() {
 		return 'https://ik.imagekit.io/dumani/My_Blog/twiiter-card-pic_x9Yv-8YEF.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1648021188010';
 	}
