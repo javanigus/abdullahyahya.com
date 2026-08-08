@@ -11,12 +11,22 @@
 	add_action( 'wp_enqueue_scripts', 'mychildtheme_enqueue_styles' );
 
 	function mychildtheme_enqueue_scripts() {
-		wp_enqueue_script(
+		// Inlined rather than enqueued as an external file: this site's
+		// ImageKit integration rewrites local asset URLs to route through
+		// the ImageKit CDN, whose origin pull is fixed to production. That
+		// breaks these assets on staging (404s, or serves production's stale
+		// copy) and adds two requests ImageKit isn't meant to serve anyway
+		// (it's an image CDN, not a general asset CDN).
+		wp_add_inline_style(
+			'child-style',
+			file_get_contents( get_stylesheet_directory() . '/css/lightbox.css' )
+		);
+
+		wp_register_script( 'mychildtheme-lightbox', false, array(), '1.0', true );
+		wp_enqueue_script( 'mychildtheme-lightbox' );
+		wp_add_inline_script(
 			'mychildtheme-lightbox',
-			get_stylesheet_directory_uri() . '/js/lightbox.js',
-			array(),
-			'1.0',
-			true
+			file_get_contents( get_stylesheet_directory() . '/js/lightbox.js' )
 		);
 	}
 	add_action( 'wp_enqueue_scripts', 'mychildtheme_enqueue_scripts' );
