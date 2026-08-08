@@ -50,7 +50,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-branding">
 				<div class="site-logo">
-				<img src="http://www.abdullahyahya.com/wp-content/uploads/2021/08/me-beach-headshot.png" class="headshot">
+				<img src="/wp-content/uploads/2021/08/me-beach-headshot.png" class="headshot">
 				<?php
 					twentyfifteen_the_custom_logo();
 

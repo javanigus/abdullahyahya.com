@@ -402,7 +402,7 @@ a,
     margin-left: 23%;
 }
 .site-header {
-	background-image: url(http://www.abdullahyahya.com/wp-content/uploads/2021/08/mobile-header-bg-1.jpg);
+	background-image: url(/wp-content/uploads/2021/08/mobile-header-bg-1.jpg);
 	background-size: cover;
 	border-bottom: 5px solid #ccc;
 }
