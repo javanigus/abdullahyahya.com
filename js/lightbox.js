@@ -36,15 +36,23 @@
 			'https://ik.imagekit.io/dumani'
 		);
 
-		// Force a deterministic, sufficiently large width via an explicit
-		// ImageKit transform. Without this, ImageKit's automatic responsive
-		// resizing on a plain (no-transform) URL can serve a smaller image
-		// depending on client hints — and since that response gets cached
-		// for a year with no Vary header accounting for it, a single small
-		// request can leave the CDN (or a browser's own cache) "stuck"
-		// serving the small version for that exact URL afterward.
+		// Force an explicit, deterministic width via an ImageKit transform.
+		// Without this, ImageKit's automatic responsive resizing on a plain
+		// (no-transform) URL can serve a smaller image depending on client
+		// hints — and since that response gets cached for a year with no
+		// Vary header accounting for it, a single small request can leave
+		// the CDN (or a browser's own cache) "stuck" serving the small
+		// version for that exact URL afterward.
+		//
+		// The width itself is sized to the viewport (capped at 2048, and
+		// bucketed to the nearest 200px so nearby viewport widths share a
+		// cache entry instead of each fragmenting it) rather than always
+		// requesting 2048px — so mobile visitors aren't downloading
+		// desktop-sized images. Putting the value in the URL, rather than
+		// relying on request headers, is what keeps this cache-safe.
+		var targetWidth = Math.min( 2048, Math.ceil( window.innerWidth * ( window.devicePixelRatio || 1 ) / 200 ) * 200 );
 		var separator = fullPath.indexOf( '?' ) === -1 ? '?' : '&';
-		return fullPath + separator + 'tr=w-2048';
+		return fullPath + separator + 'tr=w-' + targetWidth;
 	}
 
 	function isImageUrl( url ) {
