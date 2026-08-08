@@ -31,10 +31,20 @@
 		// the production and staging domain, since only the host differs.
 		// A no-op if the URL is already an ik.imagekit.io one (e.g. picked up
 		// via img.currentSrc from a srcset candidate).
-		return fullPath.replace(
+		fullPath = fullPath.replace(
 			/^https?:\/\/[^/]*abdullahyahya\.com/,
 			'https://ik.imagekit.io/dumani'
 		);
+
+		// Force a deterministic, sufficiently large width via an explicit
+		// ImageKit transform. Without this, ImageKit's automatic responsive
+		// resizing on a plain (no-transform) URL can serve a smaller image
+		// depending on client hints — and since that response gets cached
+		// for a year with no Vary header accounting for it, a single small
+		// request can leave the CDN (or a browser's own cache) "stuck"
+		// serving the small version for that exact URL afterward.
+		var separator = fullPath.indexOf( '?' ) === -1 ? '?' : '&';
+		return fullPath + separator + 'tr=w-2048';
 	}
 
 	function isImageUrl( url ) {
