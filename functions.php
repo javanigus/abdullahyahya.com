@@ -31,6 +31,11 @@
 	}
 	add_action( 'wp_enqueue_scripts', 'mychildtheme_enqueue_scripts' );
 
+	// Jetpack's own image lightbox/carousel would otherwise compete with our
+	// custom one (and only shows the currently-rendered small image, not the
+	// full-resolution ImageKit version).
+	add_filter( 'jp_carousel_maybe_disable', '__return_true' );
+
 	function custom_jetpack_default_image() {
 		return 'https://ik.imagekit.io/dumani/My_Blog/twiiter-card-pic_x9Yv-8YEF.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1648021188010';
 	}

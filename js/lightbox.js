@@ -1,13 +1,15 @@
 /**
  * Lightbox for post/page content images.
  *
- * WordPress wraps "linked to media file" images in an <a> pointing at a
- * specific generated thumbnail size (e.g. image-30-677x390.png) served from
- * the origin server. That's smaller than most screens and skips the
- * ImageKit CDN entirely. This rewrites those links to the full-resolution
- * original, served through ImageKit (matching the CDN this site already
- * uses for responsive srcset), and opens it in an overlay instead of
- * navigating away.
+ * Handles two markups WordPress produces for content images:
+ *  - "Link to: Media File" — an <a> wrapping the <img>, pointing at a
+ *    specific generated thumbnail size (e.g. image-30-677x390.png) on the
+ *    origin server.
+ *  - "Link to: None" — a bare <img>, no wrapping <a> at all.
+ *
+ * Either way, this opens the full-resolution original in an overlay,
+ * served through ImageKit (matching the CDN this site already uses for
+ * responsive srcset) instead of the small origin-server thumbnail.
  */
 ( function () {
 	'use strict';
@@ -16,29 +18,33 @@
 	 * Given a WordPress-generated image URL, return the full-resolution
 	 * version served through ImageKit instead of the origin server.
 	 *
-	 * @param {string} href e.g. "https://abdullahyahya.com/wp-content/uploads/2026/08/image-30-677x390.png"
+	 * @param {string} url e.g. "https://abdullahyahya.com/wp-content/uploads/2026/08/image-30-677x390.png"
 	 * @return {string} e.g. "https://ik.imagekit.io/dumani/wp-content/uploads/2026/08/image-30.png"
 	 */
-	function getFullSizeImageUrl( href ) {
+	function getFullSizeImageUrl( url ) {
 		// Strip WordPress's generated "-WIDTHxHEIGHT" size suffix to get back
 		// to the original, full-resolution filename.
-		var fullPath = href.replace( /-\d+x\d+(?=\.\w+(?:\?.*)?$)/, '' );
+		var fullPath = url.replace( /-\d+x\d+(?=\.\w+(?:\?.*)?$)/, '' );
 
 		// Route through the ImageKit CDN (same endpoint used for this site's
 		// responsive srcset) instead of the raw origin upload. Matches both
 		// the production and staging domain, since only the host differs.
+		// A no-op if the URL is already an ik.imagekit.io one (e.g. picked up
+		// via img.currentSrc from a srcset candidate).
 		return fullPath.replace(
 			/^https?:\/\/[^/]*abdullahyahya\.com/,
 			'https://ik.imagekit.io/dumani'
 		);
 	}
 
+	function isImageUrl( url ) {
+		return !! url && /\.(jpe?g|png|gif|webp)(\?.*)?$/i.test( url );
+	}
+
 	function isImageLink( link ) {
-		if ( ! link.href || link.children.length !== 1 ) {
-			return false;
-		}
-		var child = link.children[ 0 ];
-		return child.tagName === 'IMG' && /\.(jpe?g|png|gif|webp)(\?.*)?$/i.test( link.href );
+		return link.children.length === 1 &&
+			link.children[ 0 ].tagName === 'IMG' &&
+			isImageUrl( link.href );
 	}
 
 	function openLightbox( imageUrl, altText ) {
@@ -88,7 +94,7 @@
 	}
 
 	document.addEventListener( 'DOMContentLoaded', function () {
-		// Upgrade every matching link's href up front, so "open in new tab" /
+		// Upgrade wrapped-image links up front, so "open in new tab" /
 		// "copy link" / no-JS fallback all get the full-size ImageKit URL too.
 		document.querySelectorAll( '.entry-content a' ).forEach( function ( link ) {
 			if ( isImageLink( link ) ) {
@@ -98,12 +104,22 @@
 	} );
 
 	document.addEventListener( 'click', function ( e ) {
-		var link = e.target.closest( '.entry-content a' );
-		if ( ! link || ! isImageLink( link ) ) {
+		var img = e.target.closest( '.entry-content img' );
+		if ( ! img ) {
+			return;
+		}
+
+		var link = img.closest( 'a' );
+		// Prefer the (already-upgraded) anchor href if this image is linked;
+		// otherwise fall back to whichever srcset candidate the browser
+		// actually rendered.
+		var sourceUrl = ( link && isImageLink( link ) ) ? link.href : ( img.currentSrc || img.src );
+
+		if ( ! isImageUrl( sourceUrl ) ) {
 			return;
 		}
 
 		e.preventDefault();
-		openLightbox( link.href, link.children[ 0 ].alt );
+		openLightbox( getFullSizeImageUrl( sourceUrl ), img.alt );
 	} );
 } )();
